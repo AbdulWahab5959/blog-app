@@ -33,7 +33,8 @@ class AuthenticatedSessionController extends Controller
             return redirect()->route('verification.notice');
         }
 
-        return redirect()->intended(route('dashboard', absolute: false));
+        // CHANGE THIS LINE - Redirect to homepage instead of dashboard
+        return redirect('/');
     }
 
     /**
