@@ -6,7 +6,7 @@
     <title>LaravelBlog | Premium Blog Platform</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
+    <!-- <link rel="stylesheet" href="{{ asset('css/welcome.css') }}"> -->
 </head>
 <body>
     <div class="welcome-container">
@@ -174,7 +174,7 @@
                         <div class="logo-icon">
                             <i class="fas fa-pen-nib"></i>
                         </div>
-                        <span class="logo-text">Laravel<span>Blog</span></span>
+                        <span class="logo-text"><span> Laravel Blog</span></span>
                     </div>
                     <p class="footer-description">The premium platform for content creators and writers.</p>
                     <div class="social-links">

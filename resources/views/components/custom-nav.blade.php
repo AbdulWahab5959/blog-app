@@ -7,10 +7,10 @@
                 <div class="logo-icon">
                     <i class="fas fa-pen-nib"></i>
                 </div>
-                <span class="logo-text">Laravel<span>Blog</span></span>
+                <span class="logo-text"><span>Laravel Blog </span></span>
             </a>
         </div>
-        
+
         <nav class="header-nav">
             @auth
             <a href="{{ route('dashboard') }}" class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}">
@@ -22,31 +22,48 @@
             <a href="#" class="nav-link">Blog</a>
             <a href="#" class="nav-link">About</a>
         </nav>
-        
+
         <div class="header-actions">
             @auth
-                <!-- User dropdown for authenticated users -->
-                <div class="user-dropdown">
-                    <button class="user-dropdown-toggle">
-                        <span>{{ Auth::user()->name }}</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="user-dropdown-menu">
-                        <a href="{{ route('profile.edit') }}" class="dropdown-item">
-                            <i class="fas fa-user"></i> Profile
-                        </a>
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-                            <button type="submit" class="dropdown-item">
-                                <i class="fas fa-sign-out-alt"></i> Log Out
-                            </button>
-                        </form>
+            <!-- User dropdown for authenticated users -->
+            <div class="user-dropdown" x-data="{ open: false }">
+                <button class="user-dropdown-toggle" @click="open = !open" @click.outside="open = false">
+                    <div class="user-avatar-mini">
+                        <i class="fas fa-user-circle"></i>
                     </div>
+                    <div class="user-info-compact">
+                        <span class="user-name">{{ Auth::user()->name }}</span>
+                    </div>
+                </button>
+
+                <div class="user-dropdown-menu" x-show="open" x-transition>
+                    <a href="{{ route('profile.edit') }}" class="dropdown-item">
+                        <i class="fas fa-user-edit"></i>
+                        <span>Edit Profile</span>
+                        <i class="fas fa-chevron-right dropdown-item-arrow"></i>
+                    </a>
+
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                        <i class="fas fa-chevron-right dropdown-item-arrow"></i>
+                    </a>
+                    <div class="dropdown-divider"></div>
+
+                    <form method="POST" action="{{ route('logout') }}" class="w-full">
+                        @csrf
+                        <button type="submit" class="dropdown-item logout-item">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Sign Out</span>
+                            <i class="fas fa-chevron-right dropdown-item-arrow"></i>
+                        </button>
+                    </form>
                 </div>
+            </div>
             @else
-                <!-- Login/Register links for guests -->
-                <a href="{{ route('login') }}" class="btn-login">Log in</a>
-                <a href="{{ route('register') }}" class="btn-primary">Get Started</a>
+            <!-- Login/Register links for guests -->
+            <a href="{{ route('login') }}" class="btn-login">Log in</a>
+            <a href="{{ route('register') }}" class="btn-primary">Get Started</a>
             @endauth
         </div>
     </div>
