@@ -1,16 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard | LaravelBlog</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-</head>
-<body>
+<x-layouts.app 
+    title="Dashboard | Premium Blog Platform"
+    description="Create, share, and inspire with LaravelBlog - the premium platform for writers and content creators."
+>
     <div class="dashboard-container">
         <!-- Premium Header -->
-        <x-custom-nav />
 
         <!-- Dashboard Header -->
         <header class="dashboard-header">
@@ -183,6 +176,7 @@
                 </div>
             </div>
         </div>
+    
+
     </div>
-</body>
-</html>
+</x-layouts.app>

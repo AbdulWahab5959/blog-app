@@ -1,18 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LaravelBlog | Premium Blog Platform</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <!-- <link rel="stylesheet" href="{{ asset('css/welcome.css') }}"> -->
-</head>
-<body>
-    <div class="welcome-container">
-        <!-- Replace the entire header section with this component -->
-        <x-custom-nav />
+<x-layouts.app 
+    title="LaravelBlog | Premium Blog Platform"
+    description="Create, share, and inspire with LaravelBlog - the premium platform for writers and content creators."
+>
 
+    <div class="welcome-container">
         <!-- Rest of your page remains the same -->
         <section class="hero-section">
             <div class="hero-content">
@@ -165,60 +156,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- Footer -->
-        <footer class="welcome-footer">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <div class="logo">
-                        <div class="logo-icon">
-                            <i class="fas fa-pen-nib"></i>
-                        </div>
-                        <span class="logo-text"><span> Laravel Blog</span></span>
-                    </div>
-                    <p class="footer-description">The premium platform for content creators and writers.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                </div>
-                <div class="footer-links">
-                    <div class="link-group">
-                        <h4>Product</h4>
-                        <a href="#">Features</a>
-                        <a href="#">Pricing</a>
-                        <a href="#">Templates</a>
-                        <a href="#">Examples</a>
-                    </div>
-                    <div class="link-group">
-                        <h4>Company</h4>
-                        <a href="#">About</a>
-                        <a href="#">Blog</a>
-                        <a href="#">Careers</a>
-                        <a href="#">Contact</a>
-                    </div>
-                    <div class="link-group">
-                        <h4>Resources</h4>
-                        <a href="#">Documentation</a>
-                        <a href="#">Guides</a>
-                        <a href="#">Support</a>
-                        <a href="#">API</a>
-                    </div>
-                    <div class="link-group">
-                        <h4>Legal</h4>
-                        <a href="#">Privacy</a>
-                        <a href="#">Terms</a>
-                        <a href="#">Security</a>
-                        <a href="#">Cookies</a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>© {{ date('Y') }} LaravelBlog. All rights reserved.</p>
-            </div>
-        </footer>
     </div>
-</body>
-</html>
+
+</x-layouts.app>    
