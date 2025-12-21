@@ -1,29 +1,81 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Profile') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-profile-information-form')
+<x-layouts.app 
+    title="Profile | Premium Blog Platform"
+    description="Manage your premium account, security settings, and personal preferences."
+>
+    <div class="premium-profile-container">
+        <div class="premium-profile-card">
+            <!-- Premium Header -->
+            <div class="premium-header">
+                <div class="premium-header-content">
+                    <h1 class="premium-title">{{ __('Premium Account Settings') }}</h1>
+                    <p class="premium-subtitle">
+                        {{ __('Manage your personal information, security preferences, and account settings with our premium interface.') }}
+                    </p>
                 </div>
             </div>
 
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-password-form')
+            <!-- Profile Information Section -->
+            <div class="premium-section">
+                <div class="section-header-premium">
+                    <div class="section-icon-container icon-profile">
+                        <div class="section-icon">👤</div>
+                    </div>
+                    <div>
+                        <h2 class="section-title-premium">{{ __('Personal Information') }}</h2>
+                        <p class="section-description-premium">
+                            {{ __('Update your personal details and contact information. Your profile helps personalize your experience.') }}
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="premium-form-grid">
+                    <div class="premium-form-column">
+                        @include('profile.partials.update-profile-information-form')
+                    </div>
                 </div>
             </div>
 
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.delete-user-form')
+            <!-- Security Section -->
+            <div class="premium-section">
+                <div class="section-header-premium">
+                    <div class="section-icon-container icon-security">
+                        <div class="section-icon">🔒</div>
+                    </div>
+                    <div>
+                        <h2 class="section-title-premium">{{ __('Security Settings') }}</h2>
+                        <p class="section-description-premium">
+                            {{ __('Keep your account secure with strong authentication methods and regular password updates.') }}
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="premium-form-grid">
+                    <div class="premium-form-column">
+                        @include('profile.partials.update-password-form')
+                    </div>
+                </div>
+            </div>
+
+            <!-- Account Management Section -->
+            <div class="premium-section">
+                <div class="section-header-premium">
+                    <div class="section-icon-container icon-danger">
+                        <div class="section-icon">⚠️</div>
+                    </div>
+                    <div>
+                        <h2 class="section-title-premium">{{ __('Account Management') }}</h2>
+                        <p class="section-description-premium">
+                            {{ __('Manage advanced account settings and options. Please proceed with caution for irreversible actions.') }}
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="premium-form-grid">
+                    <div class="premium-form-column">
+                        @include('profile.partials.delete-user-form')
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</x-app-layout>
+</x-layouts.app>

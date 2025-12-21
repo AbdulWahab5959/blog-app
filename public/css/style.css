@@ -1403,3 +1403,405 @@ p {
         grid-template-columns: 1fr;
     }
 }
+/* ===== PREMIUM PROFILE DESIGN SYSTEM ===== */
+
+/* 1. Premium Container & Layout */
+.premium-profile-container {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 2rem 1rem;
+}
+
+.premium-profile-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.02);
+    overflow: hidden;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* 2. Premium Header */
+.premium-header {
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    padding: 3rem 2rem;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.premium-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none"><path d="M0,0 L1000,0 L1000,100 Q500,80 0,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+    background-size: cover;
+}
+
+.premium-header-content {
+    position: relative;
+    z-index: 2;
+}
+
+.premium-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.premium-subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    max-width: 600px;
+}
+
+/* 3. Premium Section Styling */
+.premium-section {
+    padding: 2.5rem;
+    border-bottom: 1px solid #f1f5f9;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.premium-section:last-child {
+    border-bottom: none;
+}
+
+.premium-section:hover {
+    background: linear-gradient(90deg, #f8fafc 0%, #ffffff 50%, #f8fafc 100%);
+}
+
+.section-header-premium {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.section-icon-container {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1.5rem;
+    flex-shrink: 0;
+}
+
+.icon-profile { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+.icon-security { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+.icon-danger { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+
+.section-icon {
+    color: white;
+    font-size: 1.8rem;
+}
+
+.section-title-premium {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+}
+
+.section-description-premium {
+    color: #64748b;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* 4. Premium Form Elements */
+.premium-form-group {
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.premium-label {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.premium-input {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    font-size: 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    background: #f8fafc;
+    transition: all 0.3s ease;
+    color: #1e293b;
+}
+
+.premium-input:focus {
+    outline: none;
+    border-color: #6366f1;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1), 0 4px 20px rgba(99, 102, 241, 0.1);
+}
+
+.premium-input::placeholder {
+    color: #94a3b8;
+}
+
+/* 5. Premium Buttons */
+.premium-btn {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.premium-btn-primary {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+.premium-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+}
+
+.premium-btn-danger {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+}
+
+.premium-btn-danger:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(239, 68, 68, 0.4);
+}
+
+.premium-btn-secondary {
+    background: #f1f5f9;
+    color: #475569;
+    border: 2px solid #cbd5e1;
+}
+
+.premium-btn-secondary:hover {
+    background: #e2e8f0;
+    transform: translateY(-2px);
+}
+
+.btn-icon {
+    font-size: 1.2rem;
+}
+
+/* 6. Premium Status Messages */
+.premium-status-success {
+    padding: 1rem 1.5rem;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    animation: slideIn 0.5s ease;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+.premium-status-warning {
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    color: white;
+    border-radius: 12px;
+    margin: 1.5rem 0;
+}
+
+/* 7. Premium Modal Design */
+.premium-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    backdrop-filter: blur(8px);
+}
+
+.premium-modal {
+    background: white;
+    border-radius: 20px;
+    padding: 2.5rem;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+    animation: modalSlideIn 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.premium-modal-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+}
+
+.premium-modal-icon svg {
+    width: 40px;
+    height: 40px;
+    color: white;
+}
+
+.premium-modal-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1e293b;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.premium-modal-description {
+    color: #64748b;
+    text-align: center;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+/* 8. Premium Responsive Design */
+@media (max-width: 768px) {
+    .premium-profile-container {
+        padding: 1rem;
+    }
+    
+    .premium-header {
+        padding: 2rem 1.5rem;
+        text-align: center;
+    }
+    
+    .premium-title {
+        font-size: 2rem;
+    }
+    
+    .premium-section {
+        padding: 1.5rem;
+    }
+    
+    .section-header-premium {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .section-icon-container {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+    
+    .btn-group-premium {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .premium-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* 9. Premium Animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* 10. Premium Grid Layout */
+.premium-form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.premium-form-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* 11. Premium Validation States */
+.input-error-premium {
+    border-color: #ef4444 !important;
+    background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%) !important;
+}
+
+.error-message-premium {
+    color: #dc2626;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* 12. Premium Loading States */
+.premium-loading {
+    position: relative;
+    opacity: 0.7;
+}
+
+.premium-loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #e2e8f0;
+    border-top-color: #6366f1;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-top: -10px;
+    margin-left: -10px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
