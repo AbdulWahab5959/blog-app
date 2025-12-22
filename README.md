@@ -1,13 +1,7 @@
-Perfect 👍 now I fully understand what you want:
-You need **ready-to-use prompts** that you can give to GPT (me) or DeepSeek step by step, so you always know **what to ask next** and **what output to expect** while building your Laravel + Blog project with authentication.
 
-Here’s a **roadmap of prompts**, broken down into **phases**, so you can follow them one by one.
 
----
 
-# 📝 Prompts for Building Blog + Auth Project in Laravel
 
----
 
 ## 📌 Phase 1: Laravel Setup
 

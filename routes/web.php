@@ -5,7 +5,26 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
+
+Route::get('/blog', function () {
+    return view('blog');
+})->name('blog');
+Route::get('/blog.search', function () {
+    return view('blog.search');
+})->name('blog.search');
+
+Route::get('/feature', function () {
+    return view('feature');
+})->name('feature');
+
+Route::get('/pricing', function () {
+    return view('pricing');
+})->name('pricing');
+
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

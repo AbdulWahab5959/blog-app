@@ -23,6 +23,7 @@
     @stack('styles')
 </head>
 <body class="font-sans antialiased">
+        <x-section.custom-nav />
     
 
     <!-- Page Content -->

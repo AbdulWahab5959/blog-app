@@ -6,73 +6,81 @@
         <div class="premium-profile-card">
             <!-- Premium Header -->
             <div class="premium-header">
-                <div class="premium-header-content">
+                <div class="premium-header-content text-center">
                     <h1 class="premium-title">{{ __('Premium Account Settings') }}</h1>
-                    <p class="premium-subtitle">
+                    <p class="premium-subtitle text-center">
                         {{ __('Manage your personal information, security preferences, and account settings with our premium interface.') }}
                     </p>
                 </div>
             </div>
 
-            <!-- Profile Information Section -->
-            <div class="premium-section">
-                <div class="section-header-premium">
-                    <div class="section-icon-container icon-profile">
-                        <div class="section-icon">👤</div>
+            <!-- Main Content Container -->
+            <div class="container-fluid py-4">
+                <!-- First Row: Two 6-column sections side by side -->
+                <div class="row g-4 mb-4">
+                    <!-- Left Column: Profile Information -->
+                    <div class="col-12 col-md-6">
+                        <div class="premium-section h-100">
+                            <div class="section-header-premium">
+                                <div class="section-icon-container icon-profile">
+                                    <div class="section-icon">👤</div>
+                                </div>
+                                <div>
+                                    <h2 class="section-title-premium">{{ __('Personal Information') }}</h2>
+                                    <p class="section-description-premium">
+                                        {{ __('Update your personal details and contact information. Your profile helps personalize your experience.') }}
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="premium-form-column">
+                                @include('profile.partials.update-profile-information-form')
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <h2 class="section-title-premium">{{ __('Personal Information') }}</h2>
-                        <p class="section-description-premium">
-                            {{ __('Update your personal details and contact information. Your profile helps personalize your experience.') }}
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="premium-form-grid">
-                    <div class="premium-form-column">
-                        @include('profile.partials.update-profile-information-form')
-                    </div>
-                </div>
-            </div>
 
-            <!-- Security Section -->
-            <div class="premium-section">
-                <div class="section-header-premium">
-                    <div class="section-icon-container icon-security">
-                        <div class="section-icon">🔒</div>
-                    </div>
-                    <div>
-                        <h2 class="section-title-premium">{{ __('Security Settings') }}</h2>
-                        <p class="section-description-premium">
-                            {{ __('Keep your account secure with strong authentication methods and regular password updates.') }}
-                        </p>
+                    <!-- Right Column: Security Settings -->
+                    <div class="col-12 col-md-6">
+                        <div class="premium-section h-100">
+                            <div class="section-header-premium">
+                                <div class="section-icon-container icon-security">
+                                    <div class="section-icon">🔒</div>
+                                </div>
+                                <div>
+                                    <h2 class="section-title-premium">{{ __('Security Settings') }}</h2>
+                                    <p class="section-description-premium">
+                                        {{ __('Keep your account secure with strong authentication methods and regular password updates.') }}
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="premium-form-column">
+                                @include('profile.partials.update-password-form')
+                            </div>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="premium-form-grid">
-                    <div class="premium-form-column">
-                        @include('profile.partials.update-password-form')
-                    </div>
-                </div>
-            </div>
 
-            <!-- Account Management Section -->
-            <div class="premium-section">
-                <div class="section-header-premium">
-                    <div class="section-icon-container icon-danger">
-                        <div class="section-icon">⚠️</div>
-                    </div>
-                    <div>
-                        <h2 class="section-title-premium">{{ __('Account Management') }}</h2>
-                        <p class="section-description-premium">
-                            {{ __('Manage advanced account settings and options. Please proceed with caution for irreversible actions.') }}
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="premium-form-grid">
-                    <div class="premium-form-column">
-                        @include('profile.partials.delete-user-form')
+                <!-- Second Row: Centered Account Management -->
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-10 col-lg-8 col-xl-6">
+                        <div class="premium-section">
+                            <div class="section-header-premium text-center">
+                                <div class="section-icon-container icon-danger mx-auto mb-3">
+                                    <div class="section-icon">⚠️</div>
+                                </div>
+                                <div>
+                                    <h2 class="section-title-premium">{{ __('Account Management') }}</h2>
+                                    <p class="section-description-premium">
+                                        {{ __('Manage advanced account settings and options. Please proceed with caution for irreversible actions.') }}
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="premium-form-column">
+                                @include('profile.partials.delete-user-form')
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
