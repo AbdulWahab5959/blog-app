@@ -17,13 +17,15 @@ class User extends Authenticatable
      *
      * @var list<string>
      */
-    public $timestamp = true; 
+    public $timestamps = true; // Fixed: Changed 'timestamp' to 'timestamps'
+    
     protected $fillable = [
-    'name',
-    'email',
-    'password',
-    'age',      // Add this
-    'country',  // Add this
+        'name',
+        'email',
+        'password',
+        'age',
+        'country',
+        'avatar', // Add this
     ];
 
     /**
@@ -47,5 +49,25 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    /**
+     * Get the avatar URL.
+     * If no avatar is set, use a default avatar.
+     */
+    public function getAvatarUrlAttribute(): string
+    {
+        if ($this->avatar) {
+            // Check if it's a full URL or a stored file
+            if (filter_var($this->avatar, FILTER_VALIDATE_URL)) {
+                return $this->avatar;
+            }
+            // Assuming you're storing avatars in storage/app/public/avatars
+            return asset('storage/avatars/' . $this->avatar);
+        }
+        
+        // Default avatar using Gravatar or a placeholder
+        $hash = md5(strtolower(trim($this->email)));
+        return "https://www.gravatar.com/avatar/{$hash}?d=identicon&s=200";
     }
 }

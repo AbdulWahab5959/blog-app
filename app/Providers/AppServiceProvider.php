@@ -18,7 +18,10 @@ class AppServiceProvider extends ServiceProvider
      * Bootstrap any application services.
      */
     public function boot(): void
-    {
-        //
+{
+    // Create symlink for public storage
+    if (!file_exists(public_path('storage'))) {
+        \Illuminate\Support\Facades\Artisan::call('storage:link');
     }
+}
 }
