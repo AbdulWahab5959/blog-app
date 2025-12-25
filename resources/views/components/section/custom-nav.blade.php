@@ -3,12 +3,22 @@
 <header class="welcome-header">
     <div class="header-content">
         <div class="logo">
+            @auth
             <a href="{{ route('dashboard') }}">
                 <div class="logo-icon">
                     <i class="fas fa-pen-nib"></i>
                 </div>
                 <span class="logo-text"><span>Laravel Blog </span></span>
             </a>
+            @else
+            <a href="{{ route('welcome') }}">
+                <div class="logo-icon">
+                    <i class="fas fa-pen-nib"></i>
+                </div>
+                <span class="logo-text"><span>Laravel Blog </span></span>
+            </a>
+            @endauth
+
         </div>
 
         <nav class="header-nav">
@@ -17,9 +27,15 @@
                 Dashboard
             </a>
             @endauth
+            @auth
+                <a href="{{ route('articles.my') }}" class="nav-link">
+                    <i class="fas fa-file-alt me-1"></i> My Articles
+                </a>
+            @else
+                <a href="{{ route('blog') }}" class="nav-link">Blog</a>
+            @endauth
             <a href="{{ route('feature') }}" class="nav-link">Features</a>
             <a href="{{ route('pricing') }}" class="nav-link">Pricing</a>
-            <a href="{{ route('blog') }}" class="nav-link">Blog</a>
             <a href="{{ route('about') }}" class="nav-link">About</a>
         </nav>
 

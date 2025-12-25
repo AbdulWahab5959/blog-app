@@ -3,21 +3,23 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        // Create 10 users with specific details
+        $users = User::factory()
+            ->count(10)
+            ->sequence(fn ($sequence) => [
+                'name'  => 'Test User ' . ($sequence->index + 1),
+                'email' => 'test' . ($sequence->index + 1) . '@example.com',
+                'age' => rand(18, 65),
+            ])
+            ->create();
+        
+        // Call ArticleSeeder and pass the users
+        $this->callWith(ArticleSeeder::class, ['users' => $users]);
     }
 }

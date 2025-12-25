@@ -14,8 +14,10 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->text('content');
             $table->string('image')->nullable();
+            $table->string('category')->nullable();
+            $table->integer('read_time')->default(5);
             $table->boolean('is_published')->default(true);
-            $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Relationship with users
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
