@@ -42,4 +42,35 @@ class Article extends Model
             }
         });
     }
+    public function relatedArticles($limit = 3)
+    {
+        return self::where('category', $this->category)
+            ->where('id', '!=', $this->id)
+            ->where('is_published', true)
+            ->limit($limit)
+            ->get();
+    }
+
+    /**
+     * Get related articles with fallback
+     * If no articles in same category, get recent articles
+     */
+    public function getRelatedArticles($limit = 3)
+    {
+        $related = $this->relatedArticles($limit);
+        
+        // If not enough related articles in same category, get recent articles
+        if ($related->count() < $limit) {
+            $additional = self::where('id', '!=', $this->id)
+                ->where('is_published', true)
+                ->whereNotIn('id', $related->pluck('id')->toArray())
+                ->latest()
+                ->limit($limit - $related->count())
+                ->get();
+            
+            $related = $related->merge($additional);
+        }
+        
+        return $related;
+    }
 }

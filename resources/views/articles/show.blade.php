@@ -5,9 +5,6 @@
     <div class="container-fluid py-5">
         <div class="row justify-content-center">
             <div class="col-lg-8">
-                <!-- Back Button -->
-
-
                 <!-- Article Header -->
                 <div class="article-header mb-5">
                     <div class="article-category mb-3">
@@ -19,9 +16,9 @@
                     <h1 class="article-title">{{ $article->title }}</h1>
                     <div class="article-meta-info">
                         <div class="author-info">
-                            <i class="fas fa-user-circle"></i>
                             <div>
-                                <div class="author-name">{{ $article->user->name ?? 'Anonymous' }}</div>
+                                <i class="fas fa-user-circle"></i>
+                                <span class="author-name mb-1">{{ $article->user->name ?? 'Anonymous' }}</span>
                                 <div class="article-date">
                                     Published {{ $article->created_at->format('F d, Y') }}
                                 </div>
@@ -99,21 +96,24 @@
                 <div class="related-articles mt-5">
                     <h3 class="section-title">You Might Also Like</h3>
                     <div class="row">
-                        @php
-                        $related = \App\Models\Article::where('category', $article->category)
-                        ->where('id', '!=', $article->id)
-                        ->where('is_published', true)
-                        ->limit(3)
-                        ->get();
-                        @endphp
-
-                        @foreach($related as $relatedArticle)
+                        @foreach($article->getRelatedArticles(3) as $relatedArticle)
                         <div class="col-md-4">
                             <div class="related-card">
                                 @if($relatedArticle->image)
+                                @if(filter_var($relatedArticle->image, FILTER_VALIDATE_URL))
+                                <img src="{{ $relatedArticle->image }}"
+                                    alt="{{ $relatedArticle->title }}"
+                                    class="img-fluid related-img">
+                                @else
                                 <img src="{{ asset('storage/' . $relatedArticle->image) }}"
                                     alt="{{ $relatedArticle->title }}"
-                                    class="related-image">
+                                    class="img-fluid related-img">
+                                @endif
+                                @else
+                                {{-- Default image --}}
+                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                    alt="{{ $relatedArticle->title }}"
+                                    class="img-fluid related-img">
                                 @endif
                                 <div class="related-content">
                                     <h5 class="related-title">

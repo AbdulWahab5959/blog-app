@@ -63,17 +63,17 @@ class User extends Authenticatable
      */
     public function getAvatarUrlAttribute(): string
     {
-        if ($this->avatar) {
-            // Check if it's a full URL or a stored file
-            if (filter_var($this->avatar, FILTER_VALIDATE_URL)) {
-                return $this->avatar;
-            }
-            // Assuming you're storing avatars in storage/app/public/avatars
-            return asset('storage/avatars/' . $this->avatar);
+    if ($this->avatar) {
+        // Check if it's a full URL or a stored file
+        if (filter_var($this->avatar, FILTER_VALIDATE_URL)) {
+            return $this->avatar;
         }
-        
-        // Default avatar using Gravatar or a placeholder
-        $hash = md5(strtolower(trim($this->email)));
-        return "https://www.gravatar.com/avatar/{$hash}?d=identicon&s=200";
+        // FIXED: Your controller stores in 'avatars' folder, so path should be:
+        return asset('storage/' . $this->avatar);
+    }
+    
+    // Default avatar using Gravatar or a placeholder
+    $hash = md5(strtolower(trim($this->email)));
+    return "https://www.gravatar.com/avatar/{$hash}?d=identicon&s=200";
     }
 }

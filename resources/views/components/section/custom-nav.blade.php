@@ -27,13 +27,8 @@
                 Dashboard
             </a>
             @endauth
-            @auth
-                <a href="{{ route('articles.my') }}" class="nav-link">
-                    <i class="fas fa-file-alt me-1"></i> My Articles
-                </a>
-            @else
-                <a href="{{ route('blog') }}" class="nav-link">Blog</a>
-            @endauth
+                
+            <a href="{{ route('blog') }}" class="nav-link">Blog</a>
             <a href="{{ route('feature') }}" class="nav-link">Features</a>
             <a href="{{ route('pricing') }}" class="nav-link">Pricing</a>
             <a href="{{ route('about') }}" class="nav-link">About</a>
@@ -58,12 +53,12 @@
                         <span>Edit Profile</span>
                         <i class="fas fa-chevron-right dropdown-item-arrow"></i>
                     </a>
-
+<!-- 
                     <a href="#" class="dropdown-item">
                         <i class="fas fa-cog"></i>
                         <span>Settings</span>
                         <i class="fas fa-chevron-right dropdown-item-arrow"></i>
-                    </a>
+                    </a> -->
                     <div class="dropdown-divider"></div>
 
                     <form method="POST" action="{{ route('logout') }}" class="w-full">

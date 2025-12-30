@@ -8,14 +8,6 @@
             <div class="dashboard-welcome">
                 <h1>Welcome back, {{ Auth::user()->name }}! 👋</h1>
                 <p>Here's what's happening with your blog today</p>
-                <div class="hero-actions">
-                    <a href="{{ route('articles.create') }}" class="btn-primary btn-large">
-                        <i class="fas fa-plus"></i> New Post
-                    </a>
-                    <a href="{{ route('articles.my') }}" class="btn-secondary btn-large">
-                        <i class="fas fa-file-alt"></i> My Articles
-                    </a>
-                </div>
             </div>
         </header>
 
@@ -146,7 +138,7 @@
                 </div>
             </div>
             <div class="content-section mt-4">
-                <div class="d-flex justify-content-center align-items-center mb-4">
+                <div class="d-flex justify-content-between align-items-center mb-4">
                     <h2>Latest Blog Posts</h2>
                     <a href="{{ route('blog') }}" class="btn btn-outline-primary">
                         View Full Blog <i class="fas fa-arrow-right ms-1"></i>
@@ -244,7 +236,9 @@
         
                 <!-- Pagination -->
                 <div class="premium-section-pagination mt-4">
-                    {{ $articles->links() }}
+                    <div class="d-flex flex-wrap justify-content-center align-items-center">
+                        {{ $articles->links() }}
+                    </div>
                 </div>
             </div>
         </div>

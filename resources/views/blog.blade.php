@@ -10,13 +10,6 @@
                 <p class="premium-subtitle">
                     Discover amazing content from our community of writers. {{ $articles->total() }} articles and counting!
                 </p>
-                @auth
-                <div class="text-center mb-4">
-                    <a href="{{ route('articles.create') }}" class="btn btn-primary">
-                        <i class="fas fa-plus"></i> Create Article
-                    </a>
-                </div>
-                @endauth
             </div>
         </div>
     </div>
@@ -114,7 +107,9 @@
 
                 <!-- Pagination -->
                 <div class="premium-section mt-4">
-                    {{ $articles->links() }}
+                    <div class="d-flex flex-wrap justify-content-center align-items-center">
+                        {{ $articles->links() }}
+                    </div>
                 </div>
             </div>
 

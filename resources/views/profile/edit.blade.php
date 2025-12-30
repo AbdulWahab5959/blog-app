@@ -1,7 +1,6 @@
-<x-layouts.app 
+<x-layouts.app
     title="Profile | Premium Blog Platform"
-    description="Manage your premium account, security settings, and personal preferences."
->
+    description="Manage your premium account, security settings, and personal preferences.">
     <div class="premium-profile-container">
         <div class="premium-profile-card">
             <!-- Premium Header -->
@@ -15,6 +14,7 @@
             </div>
 
             <!-- Main Content Container -->
+            
             <div class="container-fluid py-4">
                 <!-- First Row: Two 6-column sections side by side -->
                 <div class="row g-4 mb-4">
@@ -32,7 +32,7 @@
                                     </p>
                                 </div>
                             </div>
-                            
+
                             <div class="premium-form-column">
                                 @include('profile.partials.update-profile-information-form')
                             </div>
@@ -53,7 +53,7 @@
                                     </p>
                                 </div>
                             </div>
-                            
+
                             <div class="premium-form-column">
                                 @include('profile.partials.update-password-form')
                             </div>
@@ -76,7 +76,7 @@
                                     </p>
                                 </div>
                             </div>
-                            
+
                             <div class="premium-form-column">
                                 @include('profile.partials.delete-user-form')
                             </div>
